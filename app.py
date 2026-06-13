@@ -27,11 +27,13 @@ def get_stream_url():
     if not url:
         url = f"https://www.youtube.com/watch?v={video_id}"
 
+    # 🛠️ تم تعديل الإعدادات هنا لتقرأ ملف الكوكيز وتتخطى حظر يوتيوب
     ydl_opts = {
         'quiet':         True,
         'no_warnings':   True,
         'format':        'bestaudio[ext=m4a]/bestaudio/best',
         'skip_download': True,
+        'cookiefile':    'cookies.txt',  # <-- تم إضافة هذا السطر بنجاح 🎉
     }
 
     try:
